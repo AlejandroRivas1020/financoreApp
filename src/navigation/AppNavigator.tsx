@@ -7,6 +7,9 @@ import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import ValidateCodeScreen from '../screens/ValidateCodeScreen';
 import ResetPasswordScreen from '../screens/ResetPasswordScreen';
 import UserProfileScreen from '../screens/UserProfileScreen';
+import CreateEarningScreen from '../screens/CreateEarningScreen';
+import EarningsListScreen from '../screens/EarningListScreen';
+import EarningDetailsScreen from '../screens/EarningDetailsScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +23,9 @@ const AppNavigator: React.FC = () => {
       <Stack.Screen name="ValidateCode" component={ValidateCodeScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="UserProfile" component={UserProfileScreen} />
+      <Stack.Screen name="CreateEarning" component={CreateEarningScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="EarningList" component={EarningsListScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="EarningDetails" component={EarningDetailsScreen} options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 };

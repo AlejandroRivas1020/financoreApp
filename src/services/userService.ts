@@ -13,6 +13,7 @@ interface User {
   recoveryCodeExpires?: string | null;
 }
 
+
 const getUserById = async (): Promise<User> => {
   try {
     const token = await AsyncStorage.getItem('accessToken');
@@ -34,6 +35,7 @@ const getUserById = async (): Promise<User> => {
     throw new Error(error.response?.data?.message || 'Failed to fetch user data');
   }
 };
+
 
 export default {
   getUserById,

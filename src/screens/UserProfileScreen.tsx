@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, StyleSheet, Image, ActivityIndicator, Alert, TextInput } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import useUserProfile from '../hooks/useUserProfile';
 
-const UserProfileScreen = () => {
+const UserProfileScreen: React.FC = ({ })  => {
   const { user, loading, error } = useUserProfile();
 
   if (loading) {
@@ -39,13 +39,15 @@ const UserProfileScreen = () => {
         <View style={styles.profileContainer}>
           <Image source={{ uri: user.profilePicture }} style={styles.profilePicture} />
           <Text style={styles.name}>{user.name}</Text>
-          <View style={styles.infoRow}>
-            <Ionicons name="mail-outline" size={20} color="#333" />
-            <Text style={styles.infoText}>{user.email}</Text>
+
+          <View style={styles.inputContainer}>
+            <Ionicons name="mail-outline" size={20} color="#555" style={styles.icon} />
+            <TextInput value={user.email} editable={false} style={styles.input} />
           </View>
-          <View style={styles.infoRow}>
-            <Ionicons name="call-outline" size={20} color="#333" />
-            <Text style={styles.infoText}>{user.phone}</Text>
+
+          <View style={styles.inputContainer}>
+            <Ionicons name="call-outline" size={20} color="#555" style={styles.icon} />
+            <TextInput value={user.phone} editable={false} style={styles.input} />
           </View>
         </View>
       </LinearGradient>
@@ -103,14 +105,37 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 20,
   },
-  infoRow: {
+  inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    marginVertical: 10,
+    paddingHorizontal: 10,
+    width: '80%',
+    backgroundColor: '#f9f9f9',
   },
-  infoText: {
+  icon: {
+    marginRight: 10,
+  },
+  input: {
+    flex: 1,
     fontSize: 16,
     color: '#555',
+  },
+  editButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#212121',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginTop: 20,
+  },
+  editButtonText: {
+    color: '#fff',
+    fontSize: 16,
     marginLeft: 10,
   },
 });

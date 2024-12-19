@@ -16,7 +16,7 @@ const LoginScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
 
       await login(email, password);
       Alert.alert('Success', 'Login successful!');
-      navigation.navigate('UserProfile');
+      navigation.navigate('EarningList');
     } catch (error: any) {
       Alert.alert('Login Failed', error.message || 'Something went wrong. Please try again.');
     }
